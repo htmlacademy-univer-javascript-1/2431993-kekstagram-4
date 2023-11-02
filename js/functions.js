@@ -17,4 +17,4 @@ palindrome('топот'); // true
 // Несмотря на разный регистр, тоже палиндром
 palindrome('ДовОд'); // true
 // Это не палиндром
-palindrome('Кекс');  // false
+palindrome('Кекс');  // fals
