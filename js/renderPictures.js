@@ -1,4 +1,4 @@
-import {getPhotos} from '.';
+import {getPhotos} from './utils.js';
 
 const picStorage = document.querySelector('.pictures');
 const picTemplate = document.querySelector('#picture').content;

@@ -1,4 +1,4 @@
-import {MIN_INDEX_AVATAR, MAX_INDEX_AVATAR,MESSAGES, NAMES, MIN_ID_PHOTO, MAX_ID_PHOTO, DESCRIPTION, MIN_COUNT_LIKES, MAX_COUNT_LIKES, MIN_COUNT_COMMENTS, MAX_COUNT_COMMENTS, COUNT_POSTS} from './data';
+import {MIN_INDEX_AVATAR, MAX_INDEX_AVATAR,MESSAGES, NAMES, MIN_ID_PHOTO, MAX_ID_PHOTO, DESCRIPTION, MIN_COUNT_LIKES, MAX_COUNT_LIKES, MIN_COUNT_COMMENTS, MAX_COUNT_COMMENTS, COUNT_POSTS} from './data.js';
 
 const getRandomNumber = (min,max) =>{
   const lower = Math.ceil(Math.min(min,max));
@@ -40,7 +40,5 @@ const getPost = () => ({
 const getPhotos = () => Array.from({length:COUNT_POSTS}, getPost);
 getPhotos();
 
-export{getRandomNumber, getRandomArrayElement, createRandomUniqueNum};
-
-export {getPhotos};
+export{getPhotos};
 
