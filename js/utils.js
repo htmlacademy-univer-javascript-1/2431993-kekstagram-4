@@ -38,7 +38,6 @@ const getPost = () => ({
 
 });
 const getPhotos = () => Array.from({length:COUNT_POSTS}, getPost);
-getPhotos();
 
 export{getPhotos};
 
