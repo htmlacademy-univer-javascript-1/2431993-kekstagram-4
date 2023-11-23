@@ -1,4 +1,4 @@
-import {MIN_INDEX_AVATAR, MAX_INDEX_AVATAR,MESSAGES, NAMES, MIN_ID_PHOTO, MAX_ID_PHOTO, DESCRIPTION, MIN_COUNT_LIKES, MAX_COUNT_LIKES, MIN_COUNT_COMMENTS, MAX_COUNT_COMMENTS, COUNT_POSTS} from './data.js';
+import {MAX_PHOTO_URL_ID, MIN_INDEX_AVATAR, MAX_INDEX_AVATAR,MESSAGES, NAMES, MIN_ID_PHOTO, MAX_ID_PHOTO, DESCRIPTION, MIN_COUNT_LIKES, MAX_COUNT_LIKES, MIN_COUNT_COMMENTS, MAX_COUNT_COMMENTS, COUNT_POSTS} from './data.js';
 
 const getRandomNumber = (min,max) =>{
   const lower = Math.ceil(Math.min(min,max));
@@ -22,16 +22,20 @@ const createRandomUniqueNum = (min, max) => {
   };
 };
 
+const getCommentId = createRandomUniqueNum(1,1000);
+const getPhotoId = createRandomUniqueNum(MIN_ID_PHOTO,MAX_ID_PHOTO);
+const getUrlId = createRandomUniqueNum(1,MAX_PHOTO_URL_ID);
+
 const getComment = () => ({
-  id: createRandomUniqueNum(1,1000),
+  id: getCommentId(),
   avatar: `img/avatar-${getRandomNumber(MIN_INDEX_AVATAR, MAX_INDEX_AVATAR)}.svg`,
   message: getRandomArrayElement(MESSAGES),
   name: getRandomArrayElement(NAMES),
 });
 
 const getPost = () => ({
-  id: createRandomUniqueNum(MIN_ID_PHOTO, MAX_ID_PHOTO),
-  url: `photos/${getRandomNumber(MIN_INDEX_AVATAR, MAX_INDEX_AVATAR)}.jpg` ,
+  id: getPhotoId(),
+  url: `photos/${getUrlId()}.jpg` ,
   description: getRandomArrayElement(DESCRIPTION),
   likes: getRandomNumber(MIN_COUNT_LIKES, MAX_COUNT_LIKES),
   comments: Array.from({length: getRandomNumber(MIN_COUNT_COMMENTS, MAX_COUNT_COMMENTS)},getComment)
