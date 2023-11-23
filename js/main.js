@@ -1,1 +1,2 @@
-import './renderPictures.js';
+import {renderGallery} from'.//gallery.js';
+renderGallery();
