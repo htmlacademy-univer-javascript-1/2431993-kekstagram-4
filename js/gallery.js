@@ -14,6 +14,11 @@ const renderGallery = () =>{
     }
     evt.preventDefault();
     const picture = photos.find((item) => item.id === +thumbnail.dataset.picElementId);
+
+    if(!picture){
+      throw Error('Такого элемента не существует')
+    }
+
     showBigPicture(picture);
   });
   renderPictures(photos);
