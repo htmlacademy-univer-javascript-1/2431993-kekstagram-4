@@ -80,13 +80,6 @@ const showBigPicture = (data) => {
 
 };
 
-cancelButtonElement.addEventListener('click', () =>{
-  onCancelButtonClick();
-});
-commentsLoaderElement.addEventListener('click', () => {
-  loadComments();
-});
-
 function updateCurrentSocialComments(commentsVisibleLenght) {
   bigPictureCommentsVisibleCount.textContent = commentsVisibleLenght;
 
@@ -107,5 +100,11 @@ function loadComments() {
   const commentsVisibleLenght = commentListElement.childElementCount - hiddenSocialCommentsLength;
   updateCurrentSocialComments(commentsVisibleLenght);
 }
+cancelButtonElement.addEventListener('click', () =>{
+  onCancelButtonClick();
+});
+commentsLoaderElement.addEventListener('click', () => {
+  loadComments();
+});
 
 export{showBigPicture};
