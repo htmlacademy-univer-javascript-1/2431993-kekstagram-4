@@ -3,7 +3,6 @@ const bigPictureCommentsCount = bigPictureElement.querySelector('.comments-count
 const bigPictureCommentsVisibleCount = bigPictureElement.querySelector('.comments-visible-count');
 const commentListElement = bigPictureElement.querySelector('.social__comments');
 const commentsLoaderElement = bigPictureElement.querySelector('.comments-loader');
-const bodyElement = document.querySelector('body');
 const cancelButtonElement = bigPictureElement.querySelector('.big-picture__cancel');
 const commentElement = document.querySelector('.social__comment');
 const COUNT_DOWNLOD_COMMENTS = 5;
@@ -46,7 +45,7 @@ const renderComments = (comments) => {
 const hideBigPicture = () => {
   commentsLoaderElement.classList.remove('hidden');
   bigPictureElement.classList.add('hidden');
-  bodyElement.classList.remove('modal-open');
+  document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeyDown);
 };
 
@@ -70,7 +69,7 @@ const renderPictureDetails = ({url, likes, description}) =>{
 
 const showBigPicture = (data) => {
   bigPictureElement.classList.remove('hidden');
-  bodyElement.classList.add('modal-open');
+  document.body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeyDown);
   bigPictureCommentsVisibleCount.textContent = data.comments.length < COUNT_DOWNLOD_COMMENTS ? data.comments.length : COUNT_DOWNLOD_COMMENTS;
   bigPictureCommentsCount.textContent = data.comments.length;
