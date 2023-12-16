@@ -1395,3 +1395,15 @@ main {
 .hidden {
   display: none;
 }
+
+.hashtag__error{
+  color: #f32c2c;
+  font-size: 12px;
+  margin-top: -20px;
+  z-index: 10000;
+  position: relative;
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
