@@ -1,4 +1,6 @@
-import { pristine } from "./validate-form.js";
+import { pristine } from './validate-form.js';
+import {resetScale} from './scale.js';
+import {resetEffects} from './nouislider.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const fileInput = document.querySelector('#upload-file');
@@ -18,6 +20,9 @@ const hideModal = () => {
     editorCloser.removeEventListener('click', hideModal);
     document.body.classList.remove('modal-open');
     uploadForm.reset();
+    resetScale();
+    pristine.reset();
+    resetEffects();
   }
 };
 
