@@ -1,22 +1,19 @@
 import {showBigPicture} from './bigPicture.js';
 import {renderPictures} from'./renderPictures.js';
-import {getPhotos} from './utils.js';
 
 const container = document.querySelector('.pictures');
 
-const photos = getPhotos();
-
-const renderGallery = () =>{
+const renderGallery = (pictures) =>{
   container.addEventListener('click', (evt) =>{
     const thumbnail = evt.target.closest('[data-pic-element-id]');
     if(!thumbnail){
       return;
     }
     evt.preventDefault();
-    const picture = photos.find((item) => item.id === +thumbnail.dataset.picElementId);
+    const picture = pictures.find((item) => item.id === +thumbnail.dataset.picElementId);
     showBigPicture(picture);
   });
-  renderPictures(photos);
+  renderPictures(pictures);
 };
 export{renderGallery};
 

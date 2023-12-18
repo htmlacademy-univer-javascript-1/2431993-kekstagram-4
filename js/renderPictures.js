@@ -12,7 +12,6 @@ const renderPictures = function(pictures){
     picElement.querySelector('.picture__likes').textContent = likes;
     picElement.dataset.picElementId = id;
     picsListFragment.appendChild(picElement);
-
   });
 
   picStorage.appendChild(picsListFragment);
