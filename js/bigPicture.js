@@ -1,3 +1,5 @@
+import { isEscapeKey } from './utils.js';
+
 const bigPictureElement = document.querySelector('.big-picture');
 const bigPictureCommentsCount = bigPictureElement.querySelector('.comments-count');
 const bigPictureCommentsVisibleCount = bigPictureElement.querySelector('.comments-visible-count');
@@ -47,18 +49,19 @@ const hideBigPicture = () => {
   bigPictureElement.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeyDown);
+  document.removeEventListener('click', onCancelButtonClick);
 };
 
 function onDocumentKeyDown(evt){
-  if(evt.key === 'Escape'){
+  if(isEscapeKey(evt)){
     evt.preventDefault();
     hideBigPicture();
   }
 }
 
-const onCancelButtonClick = () => {
+function onCancelButtonClick () {
   hideBigPicture();
-};
+}
 
 const renderPictureDetails = ({url, likes, description}) =>{
   bigPictureElement.querySelector('.big-picture__img img').src = url;
@@ -79,7 +82,7 @@ const showBigPicture = (data) => {
 
 };
 
-function updateCurrentSocialComments(commentsVisibleLenght) {
+const updateCurrentSocialComments = (commentsVisibleLenght) => {
   bigPictureCommentsVisibleCount.textContent = commentsVisibleLenght;
 
   if (commentsVisibleLenght < commentListElement.childElementCount) {
@@ -87,8 +90,9 @@ function updateCurrentSocialComments(commentsVisibleLenght) {
   } else {
     commentsLoaderElement.classList.add('hidden');
   }
-}
-function loadComments() {
+};
+
+const loadComments =() => {
   for (let i = 0; i < COUNT_DOWNLOD_COMMENTS; i++) {
     const hiddenSocialComment = commentListElement.querySelector('.hidden');
     if (hiddenSocialComment !== null) {
@@ -98,7 +102,8 @@ function loadComments() {
   const hiddenSocialCommentsLength = commentListElement.querySelectorAll('.hidden').length;
   const commentsVisibleLenght = commentListElement.childElementCount - hiddenSocialCommentsLength;
   updateCurrentSocialComments(commentsVisibleLenght);
-}
+};
+
 cancelButtonElement.addEventListener('click', () =>{
   onCancelButtonClick();
 });
