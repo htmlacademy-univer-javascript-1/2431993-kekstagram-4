@@ -45,9 +45,6 @@ fileInput.addEventListener('change', ()=>{
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeyDown);
   editorCloser.addEventListener('click', hideModal);
-  privewList.forEach((item)=>{
-    item.style.backgroundImage = `url(${imageEditorPreview.src})`;
-  });
 });
 
 uploadForm.addEventListener('submit', (evt)=>{

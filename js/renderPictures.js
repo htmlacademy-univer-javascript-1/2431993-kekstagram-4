@@ -1,7 +1,7 @@
-const renderPictures = function(pictures){
-  const picStorage = document.querySelector('.pictures');
-  const picTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const picStorage = document.querySelector('.pictures');
+const picTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
+const renderPictures = function(pictures){
   const picsListFragment = document.createDocumentFragment();
 
   pictures.forEach(({url, description, likes, comments, id}) => {
@@ -16,4 +16,9 @@ const renderPictures = function(pictures){
 
   picStorage.appendChild(picsListFragment);
 };
-export {renderPictures};
+
+function clearPictures(){
+  picStorage.querySelectorAll('.picture').forEach((p) => p.remove());
+}
+
+export {renderPictures, clearPictures};
