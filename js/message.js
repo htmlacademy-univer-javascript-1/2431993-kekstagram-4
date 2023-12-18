@@ -20,7 +20,8 @@ function closeMessageByEscape(evt) {
 }
 
 function onOutMessageModalClick (evt) {
-  if (!(evt.target.closest('.error__inner') || evt.target.closest('.success__inner'))) {
+  const isInnerElement = evt.target.closest('.error__inner') || evt.target.closest('.success__inner');
+  if (!isInnerElement) {
     hideMessage();
   }
 }
