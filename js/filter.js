@@ -1,7 +1,7 @@
 import { debounce } from './utils.js';
 import { clearPictures } from './renderPictures.js';
 import { getRandomNumber } from './utils.js';
-import { renderGallery } from './gallery.js';
+import { renderPictures } from './renderPictures.js';
 
 const filterSection = document.querySelector('.img-filters');
 let photos;
@@ -31,7 +31,7 @@ function discussedSort() {
 
 function applyFilter(currentButton, sorting) {
   clearPictures();
-  renderGallery(sorting());
+  renderPictures(sorting());
   activeButton.classList.remove('img-filters__button--active');
   currentButton.classList.add('img-filters__button--active');
   activeButton = currentButton;
